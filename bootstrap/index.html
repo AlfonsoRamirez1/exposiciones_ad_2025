@@ -1,0 +1,552 @@
+    <!doctype html>
+    <html lang="es" data-bs-theme="light">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo de Bootstrap 5 – Presentación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top border-bottom shadow-sm">
+        <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Bootstrap Demo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#intro">Intro</a></li>
+            <li class="nav-item"><a class="nav-link" href="#grid">Grid</a></li>
+            <li class="nav-item"><a class="nav-link" href="#componentes">Componentes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#utilidades">Utilidades</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+            <button id="btnTheme" class="btn btn-outline-secondary btn-sm" type="button" title="Alternar tema">🌓 Tema</button>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#toc" aria-controls="toc">Índice</button>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR / TOC -->
+    <div class="offcanvas offcanvas-start bd-sidebar show d-none d-lg-block position-fixed top-0 start-0 border-end" tabindex="-1" id="toc" aria-labelledby="tocLabel" style="visibility: visible;">
+        <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="tocLabel">Índice (componentes)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#toc" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body small">
+        <nav class="nav flex-column">
+            <a class="nav-link" href="#intro">Introducción</a>
+            <a class="nav-link" href="#grid">Grid</a>
+            <a class="nav-link" href="#tipografia">Tipografía</a>
+            <a class="nav-link" href="#botones">Botones</a>
+            <a class="nav-link" href="#formularios">Formularios</a>
+            <a class="nav-link" href="#cards">Cards</a>
+            <a class="nav-link" href="#alerts">Alerts</a>
+            <a class="nav-link" href="#badges">Badges</a>
+            <a class="nav-link" href="#breadcrumb">Breadcrumb</a>
+            <a class="nav-link" href="#tabla">Tablas</a>
+            <a class="nav-link" href="#listgroup">List Group</a>
+            <a class="nav-link" href="#accordion">Accordion</a>
+            <a class="nav-link" href="#tabs">Tabs</a>
+            <a class="nav-link" href="#modal">Modal</a>
+            <a class="nav-link" href="#offcanvas">Offcanvas</a>
+            <a class="nav-link" href="#collapse">Collapse</a>
+            <a class="nav-link" href="#dropdowns">Dropdowns</a>
+            <a class="nav-link" href="#carousel">Carousel</a>
+            <a class="nav-link" href="#paginacion">Paginación</a>
+            <a class="nav-link" href="#progress">Progress</a>
+            <a class="nav-link" href="#spinners">Spinners</a>
+            <a class="nav-link" href="#toasts">Toasts</a>
+            <a class="nav-link" href="#tooltips">Tooltips & Popovers</a>
+            <a class="nav-link" href="#placeholders">Placeholders</a>
+            <a class="nav-link" href="#utilidades">Utilidades</a>
+        </nav>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="bd-content">
+        <section id="intro" class="section-anchor container py-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+            <h1 class="display-5 fw-bold">Presentación: Bootstrap 5</h1>
+            <p class="lead">Framework CSS para construir sitios responsivos más rápido con un sistema de grid, componentes listos y utilidades.</p>
+            <ul>
+                <li><strong>CDN listo:</strong> sin instalar nada, solo enlazar CSS/JS.</li>
+                <li><strong>Mobile‑first:</strong> diseño que se adapta desde pantallas pequeñas.</li>
+                <li><strong>Accesibilidad:</strong> ARIA, contraste, navegación por teclado.</li>
+                <li><strong>Temas:</strong> soporte de <em>color modes</em> (claro/oscuro).</li>
+            </ul>
+            <div class="code-sample">&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</div>
+            </div>
+            <div class="col-lg-5">
+            <div class="p-4 border rounded-3 bg-body-tertiary">
+                <h5 class="mb-3">Objetivo de la demo</h5>
+                <p class="mb-2">Mostrar los componentes esenciales en una sola página, con ejemplos funcionales que puedas reutilizar.</p>
+                <a class="btn btn-primary" href="#componentes">Ir a componentes</a>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- GRID -->
+        <section id="grid" class="section-anchor container py-5">
+        <h2 class="mb-3">Sistema de Grid</h2>
+        <p class="text-secondary">Ejemplo de <code>.row</code> y columnas responsivas (<code>.col-*</code>).</p>
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-3">
+            <div class="p-3 border rounded text-center">.col-12 .col-md-6 .col-lg-3</div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+            <div class="p-3 border rounded text-center">Responsivo</div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+            <div class="p-3 border rounded text-center">Mobile‑first</div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+            <div class="p-3 border rounded text-center">Gutters</div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- TIPOGRAFÍA -->
+        <section id="tipografia" class="section-anchor container py-5">
+        <h2 class="mb-3">Tipografía & Encabezados</h2>
+        <p class="lead">Clases de tamaño, peso y estilo.</p>
+        <h1>h1. Título</h1>
+        <h2>h2. Subtítulo</h2>
+        <h3 class="fw-semibold">h3. Semibold</h3>
+        <p class="text-muted">Texto atenuado con <code>.text-muted</code>.</p>
+        <p><span class="badge text-bg-info">Badge</span> dentro de texto.</p>
+        </section>
+
+        <hr class="container">
+
+        <!-- BOTONES -->
+        <section id="botones" class="section-anchor container py-5">
+        <h2 class="mb-3">Botones</h2>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-danger">Danger</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-info">Info</button>
+            <button class="btn btn-light">Light</button>
+            <button class="btn btn-dark">Dark</button>
+            <button class="btn btn-outline-primary">Outline</button>
+            <button class="btn btn-link">Link</button>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- FORMULARIOS -->
+        <section id="formularios" class="section-anchor container py-5">
+        <h2 class="mb-3">Formularios</h2>
+        <form class="row g-3">
+            <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="nombre@correo.com">
+            </div>
+            <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+            <label for="inputAddress" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Calle 123, Colonia…">
+            </div>
+            <div class="col-md-6">
+            <label for="inputCity" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+            <label for="inputState" class="form-label">Estado</label>
+            <select id="inputState" class="form-select">
+                <option>Selecciona…</option>
+                <option>CDMX</option>
+                <option>NL</option>
+            </select>
+            </div>
+            <div class="col-md-2">
+            <label for="inputZip" class="form-label">CP</label>
+            <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">Acepto términos</label>
+            </div>
+            </div>
+            <div class="col-12">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+        </section>
+
+        <hr class="container">
+
+        <!-- CARDS -->
+        <section id="cards" class="section-anchor container py-5">
+        <h2 class="mb-3">Cards</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <img src="https://picsum.photos/seed/1/600/300" class="card-img-top" alt="Random">
+                <div class="card-body">
+                <h5 class="card-title">Card con imagen</h5>
+                <p class="card-text">Contenido breve dentro de una card de Bootstrap.</p>
+                <a href="#" class="btn btn-sm btn-primary">Acción</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-primary">
+                <div class="card-header">Destacada</div>
+                <div class="card-body">
+                <h5 class="card-title">Título</h5>
+                <p class="card-text">Otra variación con header.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+            <div class="card h-100 text-bg-dark">
+                <div class="card-body">
+                <h5 class="card-title">Tema oscuro</h5>
+                <p class="card-text">Usando <code>.text-bg-dark</code>.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- ALERTS BADGES BREADCRUMB -->
+        <section id="alerts" class="section-anchor container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Alerts</h2>
+            <nav aria-label="breadcrumb" id="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Demo</li>
+            </ol>
+            </nav>
+        </div>
+        <div class="alert alert-primary" role="alert">Alerta primaria — ejemplo simple.</div>
+        <div class="alert alert-warning" role="alert">Advertencia — cuidado con esto.</div>
+        <div class="alert alert-danger" role="alert">Error — algo salió mal.</div>
+        <p class="mt-3">Badges: <span class="badge text-bg-success">Nuevo</span> <span class="badge text-bg-secondary">Beta</span></p>
+        </section>
+
+        <hr class="container">
+
+        <!-- TABLAS -->
+        <section id="tabla" class="section-anchor container py-5">
+        <h2 class="mb-3">Tablas</h2>
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+            <thead>
+                <tr><th>#</th><th>Nombre</th><th>Rol</th><th>Estado</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Ana</td><td>Admin</td><td><span class="badge text-bg-success">Activo</span></td></tr>
+                <tr><td>2</td><td>Luis</td><td>Editor</td><td><span class="badge text-bg-secondary">Pendiente</span></td></tr>
+                <tr><td>3</td><td>María</td><td>Viewer</td><td><span class="badge text-bg-danger">Bloqueado</span></td></tr>
+            </tbody>
+            </table>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- LIST GROUP -->
+        <section id="listgroup" class="section-anchor container py-5">
+        <h2 class="mb-3">List Group</h2>
+        <ul class="list-group">
+            <li class="list-group-item active" aria-current="true">Elemento activo</li>
+            <li class="list-group-item">Elemento</li>
+            <li class="list-group-item">Otro elemento</li>
+        </ul>
+        </section>
+
+        <hr class="container">
+
+        <!-- ACCORDION -->
+        <section id="accordion" class="section-anchor container py-5">
+        <h2 class="mb-3">Accordion</h2>
+        <div class="accordion" id="demoAccordion">
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#colOne" aria-expanded="true" aria-controls="colOne">¿Qué es Bootstrap?</button>
+            </h2>
+            <div id="colOne" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
+                <div class="accordion-body">Es un framework CSS con componentes y utilidades listas para usar.</div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#colTwo" aria-expanded="false" aria-controls="colTwo">¿Por qué usarlo?</button>
+            </h2>
+            <div id="colTwo" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
+                <div class="accordion-body">Para acelerar el desarrollo y asegurar consistencia y responsividad.</div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- TABS -->
+        <section id="tabs" class="section-anchor container py-5">
+        <h2 class="mb-3">Navs & Tabs</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+            </li>
+        </ul>
+        <div class="tab-content border border-top-0 p-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">Contenido Home.</div>
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">Contenido Profile.</div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- MODAL -->
+        <section id="modal" class="section-anchor container py-5">
+        <h2 class="mb-3">Modal</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demoModal">Abrir modal</button>
+        <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="demoModalLabel">Modal de ejemplo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">Este es un modal funcional con Bootstrap 5.</div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- OFFCANVAS -->
+        <section id="offcanvas" class="section-anchor container py-5">
+        <h2 class="mb-3">Offcanvas</h2>
+        <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDemo" aria-controls="offcanvasDemo">Abrir offcanvas</button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasDemo" aria-labelledby="offcanvasDemoLabel">
+            <div class="offcanvas-header">
+            <h5 id="offcanvasDemoLabel">Menú lateral</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">Contenido del panel lateral.</div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- COLLAPSE -->
+        <section id="collapse" class="section-anchor container py-5">
+        <h2 class="mb-3">Collapse</h2>
+        <p>
+            <a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Alternar</a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">Contenido escondido que aparece con Collapse.</div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- DROPDOWNS -->
+        <section id="dropdowns" class="section-anchor container py-5">
+        <h2 class="mb-3">Dropdowns</h2>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Opciones</button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Acción</a></li>
+            <li><a class="dropdown-item" href="#">Otra acción</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Algo más</a></li>
+            </ul>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- CAROUSEL -->
+        <section id="carousel" class="section-anchor container py-5">
+        <h2 class="mb-3">Carousel</h2>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/seed/slide1/1200/400" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>Primer slide</h5>
+                <p>Texto descriptivo.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/seed/slide2/1200/400" class="d-block w-100" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/seed/slide3/1200/400" class="d-block w-100" alt="Slide 3">
+            </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- PAGINACIÓN -->
+        <section id="paginacion" class="section-anchor container py-5">
+        <h2 class="mb-3">Paginación</h2>
+        <nav aria-label="Ejemplo de paginación">
+            <ul class="pagination">
+            <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page"><span class="page-link">2</span></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+        </section>
+
+        <hr class="container">
+
+        <!-- PROGRESS & SPINNERS -->
+        <section id="progress" class="section-anchor container py-5">
+        <h2 class="mb-3">Progress</h2>
+        <div class="progress mb-3" role="progressbar" aria-label="Descarga" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 25%">25%</div>
+        </div>
+        </section>
+
+        <section id="spinners" class="section-anchor container py-5">
+        <h2 class="mb-3">Spinners</h2>
+        <div class="d-flex gap-3 align-items-center">
+            <div class="spinner-border" role="status" aria-label="Cargando..."></div>
+            <div class="spinner-grow" role="status" aria-label="Cargando..."></div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- TOASTS -->
+        <section id="toasts" class="section-anchor container py-5">
+        <h2 class="mb-3">Toasts</h2>
+        <button id="showToast" class="btn btn-outline-success">Mostrar toast</button>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>ahora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                ¡Hola! Este es un toast de ejemplo.
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <hr class="container">
+
+        <!-- TOOLTIPS / POPOVERS -->
+        <section id="tooltips" class="section-anchor container py-5">
+        <h2 class="mb-3">Tooltips & Popovers</h2>
+        <button type="button" class="btn btn-secondary me-2" data-bs-toggle="tooltip" data-bs-title="Texto del tooltip">Tooltip</button>
+        <button type="button" class="btn btn-info" data-bs-toggle="popover" data-bs-title="Título" data-bs-content="Contenido del popover">Popover</button>
+        </section>
+
+        <hr class="container">
+
+        <!-- PLACEHOLDERS -->
+        <section id="placeholders" class="section-anchor container py-5">
+        <h2 class="mb-3">Placeholders</h2>
+        <p class="placeholder-glow" style="max-width: 420px;">
+            <span class="placeholder col-7"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-4"></span>
+            <span class="placeholder col-6"></span>
+            <span class="placeholder col-8"></span>
+        </p>
+        </section>
+
+        <hr class="container">
+
+        <!-- UTILIDADES -->
+        <section id="utilidades" class="section-anchor container py-5">
+        <h2 class="mb-3">Utilidades (espaciado, colores, display, flex)</h2>
+        <div class="d-flex gap-2 flex-wrap align-items-center">
+            <div class="p-3 border rounded bg-primary text-white">.bg-primary</div>
+            <div class="p-3 border rounded bg-warning">.bg-warning</div>
+            <div class="p-3 border rounded bg-success text-white">.bg-success</div>
+            <div class="p-3 border rounded d-none d-md-block">Oculto en XS/SM</div>
+        </div>
+        <p class="mt-3">Más utilidades: <code>m-*</code>, <code>p-*</code>, <code>text-*</code>, <code>shadow</code>, <code>rounded</code>, <code>position-*</code>, <code>opacity-*</code>, etc.</p>
+        </section>
+
+        <section id="componentes" class="section-anchor container pb-5">
+        <div class="alert alert-info mt-4" role="alert">
+            Tip: Usa el botón <strong>Índice</strong> (arriba) en móvil para saltar a cualquier componente durante la exposición.
+        </div>
+        </section>
+
+        <footer class="border-top mt-5 py-4 text-center text-secondary small">
+        Hecho para tu clase de Bootstrap · Puedes copiar/pegar cualquier sección
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Alternar tema claro/oscuro
+        document.getElementById('btnTheme').addEventListener('click', () => {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-bs-theme') || 'light';
+        html.setAttribute('data-bs-theme', current === 'light' ? 'dark' : 'light');
+        });
+
+        // Inicializar tooltips y popovers
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+        const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        popoverTriggerList.map(el => new bootstrap.Popover(el));
+
+        // Toast demo
+        const toastEl = document.getElementById('liveToast');
+        const toast = new bootstrap.Toast(toastEl);
+        document.getElementById('showToast').addEventListener('click', () => toast.show());
+    </script>
+    </body>
+    </html>

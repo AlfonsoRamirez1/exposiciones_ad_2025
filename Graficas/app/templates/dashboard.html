@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<div class="text-center mb-8 mt-4">
+  <h1 class="text-4xl font-medium text-cyan-600 mb-4">Dashboard de Ventas</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Fila 1 -->
+  <div id="ventasProducto" class="border-4 border-solid border-cyan-600 h-48 sm:h-64 lg:h-80 w-full flex items-center justify-center rounded-xl bg-white shadow"></div>
+  <div id="topVendedores" class="border-4 border-solid border-cyan-600 h-48 sm:h-64 lg:h-80 w-full flex items-center justify-center rounded-xl bg-white shadow col-span-1 lg:col-span-2"></div>
+
+  <!-- Fila 2 -->
+  <div id="metodosPago" class="border-4 border-solid border-cyan-600 h-48 sm:h-64 lg:h-80 w-full flex items-center justify-center rounded-xl bg-white shadow"></div>
+  <div id="ventasPorEstado" class="border-4 border-solid border-cyan-600 h-48 sm:h-64 lg:h-80 w-full flex items-center justify-center rounded-xl bg-white shadow"></div>
+  <div id="topClientes" class="border-4 border-solid border-cyan-600 h-48 sm:h-64 lg:h-80 w-full flex items-center justify-center rounded-xl bg-white shadow"></div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='dist/apexcharts.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/browser@4.js') }}"></script>
+<script src="{{ url_for('static', filename='dist/echarts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

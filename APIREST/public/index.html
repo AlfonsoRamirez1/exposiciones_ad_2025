@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de API REST | CRUD</title>
+  <link rel="stylesheet" href="/public/css/api.css">
+</head>
+<body>
+  <h1>Gestión de Usuarios</h1>
+
+  <section class="form-container">
+    <h2>Agregar / Editar Usuario</h2>
+    <form id="userForm">
+      <input type="hidden" id="userId">
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="email" id="correo" placeholder="Correo" required>
+      <button type="submit">Guardar</button>
+    </form>
+  </section>
+
+  <section class="table-container">
+    <h2>Lista de Usuarios</h2>
+    <button id="loadUsers">Cargar Usuarios</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+  </section>
+  <script src="/public/js/api.js"></script>
+</body>
+</html>

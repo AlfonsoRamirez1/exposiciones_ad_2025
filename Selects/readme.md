@@ -22,13 +22,13 @@ cd tu-repositorio
 
 ### 2. Instalar dependencias del Backend
 ```bash
-cd backend
+cd server
 npm install
 ```
 
 ### 3. Instalar dependencias del Frontend
 ```bash
-cd ../frontend
+cd ../my-react-app
 npm install
 ```
 
@@ -53,7 +53,7 @@ PORT=8080
 
 ### 6. Iniciar el Backend
 
-Abre una terminal en la carpeta `backend/`:
+Abre una terminal en la carpeta `server/`:
 ```bash
 npm start
 ```
@@ -62,7 +62,7 @@ Deberías ver: `Servidor corriendo en http://localhost:8080`
 
 ### 7. Iniciar el Frontend
 
-Abre **otra terminal** en la carpeta `frontend/`:
+Abre **otra terminal** en la carpeta `my-react-app/`:
 ```bash
 npm start
 ```
@@ -95,7 +95,7 @@ Se abrirá automáticamente en `http://localhost:3000`
 
 **"Cannot find module":**
 ```bash
-cd backend
+cd server
 npm install
 ```
 
@@ -112,10 +112,10 @@ npm install
 
 ```
 proyecto-dropdowns/
-├── frontend/         # React app
+├── my-react-app/         # React app
 │   ├── src/
 │   └── package.json
-├── backend/          # Node.js API
+├── server/          # Node.js API
 │   ├── server.js
 │   ├── .env
 │   └── package.json
@@ -123,14 +123,3 @@ proyecto-dropdowns/
 ```
 
 ---
-
-## ⏱️ Tiempo Estimado
-
-- Instalación: 5 minutos
-- Configuración BD: 10 minutos
-- Configuración .env: 5 minutos
-- **Total: ~20 minutos**
-
----
-
-¡Listo! 🎉

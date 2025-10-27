@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Stored XSS — Comentarios del Producto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Manual Pro — Descargas-Opiniones</h1>
+  </header>
+
+  <section id="area-descarga">
+    <p>Descarga la última versión de nuestro manual de usuario.</p>
+    <a id="enlace-descarga" href="manual_usuario.pdf" target="_blank">📘 Descargar Manual (PDF)</a>
+  </section>
+
+  <section id="comentarios-section">
+    <h2>Comentarios de Usuarios</h2>
+    <div id="comentarios"></div>
+
+    <form id="form-comentario">
+      <textarea id="texto-comentario" placeholder="Escribe tu comentario..." rows="4"></textarea>
+      <button type="submit" class="btn">Publicar</button>
+    </form>
+    <button id="btn-limpiar" class="btn-secondary">Limpiar Comentarios</button>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

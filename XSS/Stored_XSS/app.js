@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-comentario');
     const inputComentario = document.getElementById('texto-comentario');
     const divComentarios = document.getElementById('comentarios');
-
+    
     function guardarComentario(texto) {
         const comentarios = JSON.parse(localStorage.getItem('comentarios_db')) || [];
         comentarios.push({ texto: texto });
@@ -56,4 +56,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*
 <img src=x onerror="var e=document.getElementById('enlace-descarga'); e.href='DOCUMENTO_FALSO'; e.innerText='¡Descargar (VERSIÓN CORRUPTA)!'; e.style.background='red'">
+
 */

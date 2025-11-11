@@ -1,0 +1,138 @@
+RESUMEN DE PASOS: CREAR UN GESTOR DE TAREAS CON DJANGO
+
+Este documento resume el proceso completo, desde la instalación hasta la ejecución de la aplicación web.
+
+=== 1. Instalación y Entorno ===
+
+(Opcional) Crear un entorno virtual para aislar el proyecto:
+python -m venv mi_entorno
+
+(Opcional) Activar el entorno virtual:
+
+En macOS/Linux: source mi_entorno/bin/activate
+
+En Windows: mi_entorno\Scripts\activate
+
+Instalar Django:
+pip install django
+
+=== 2. Creación del Proyecto y la App ===
+
+Crear el "Proyecto" principal (el contenedor del sitio):
+django-admin startproject mi_proyecto
+
+Entrar al directorio del proyecto (donde está manage.py):
+cd mi_proyecto
+
+Crear una "App" (el módulo que manejará las tareas):
+python manage.py startapp core
+
+=== 3. Configuración del Proyecto ===
+
+Editar el archivo mi_proyecto/settings.py.
+
+En la lista INSTALLED_APPS, añadir nuestra app 'core' (usualmente al final):
+'core',
+
+=== 4. Definición del Modelo (Base de Datos) ===
+
+Editar el archivo core/models.py.
+
+Definir la clase Task que hereda de models.Model.
+
+Añadir los campos deseados (ej. title = models.CharField(...), completed = models.BooleanField(...), etc.).
+
+=== 5. Migraciones (Aplicar Cambios a la BD) ===
+
+Preparar el archivo de migración (le dice a Django qué cambios hay):
+python manage.py makemigrations core
+
+Aplicar los cambios a la base de datos (crea la tabla core_task):
+python manage.py migrate
+
+=== 6. Configurar el Panel de Administración ===
+
+Crear una cuenta de administrador para acceder a /admin/:
+python manage.py createsuperuser
+(Seguir las instrucciones para usuario, email y contraseña).
+
+Editar el archivo core/admin.py.
+
+Importar el modelo: from .models import Task
+
+Registrar el modelo para que aparezca en el admin:
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('title', 'completed', 'created_at')
+
+=== 7. Crear el Formulario (ModelForm) ===
+
+Crear un archivo nuevo: core/forms.py.
+
+Importar forms y el modelo Task.
+
+Definir una clase TaskForm que herede de forms.ModelForm.
+
+En la class Meta interna, especificar model = Task y los fields = ['title', 'description'].
+
+=== 8. Crear la Plantilla (HTML) ===
+
+Crear la estructura de carpetas necesaria dentro de la app core:
+core/templates/core/
+
+Crear el archivo HTML: core/templates/core/task_list.html.
+
+Escribir el HTML de la página, incluyendo:
+
+Un <form method="POST">
+
+La etiqueta de seguridad: {% csrf_token %}
+
+El renderizado del formulario: {{ form.as_p }}
+
+Un bucle para listar las tareas: {% for task in tasks %}
+
+=== 9. Escribir la Vista (La Lógica) ===
+
+Editar el archivo core/views.py.
+
+Importar lo necesario: from django.shortcuts import render, redirect, from .models import Task y from .forms import TaskForm.
+
+Definir la función task_list(request).
+
+Dentro de la función:
+
+Implementar la lógica para request.method == 'POST' (para guardar el formulario).
+
+Implementar la lógica para GET (obtener Task.objects.all() y crear un TaskForm() vacío).
+
+Definir el context (un diccionario) con las tareas y el formulario.
+
+Devolver render(request, 'core/task_list.html', context).
+
+=== 10. Conectar las URLs ===
+
+Crear un archivo nuevo: core/urls.py.
+
+Importar path y las vistas (from . import views).
+
+Definir urlpatterns con la ruta a nuestra vista:
+path('', views.task_list, name='task_list')
+
+Editar el archivo principal de URLs: mi_proyecto/urls.py.
+
+Importar include: from django.urls import path, include
+
+Añadir la ruta que conecta con nuestra app core (reemplazando la de "Hola Mundo" si existía):
+path('', include('core.urls')),
+
+=== 11. Ejecución ===
+
+Iniciar el servidor de desarrollo:
+python manage.py runserver
+
+Abrir el navegador y visitar:
+
+http://127.0.0.1:8000/ (para ver la app de tareas).
+
+http://127.0.0.1:8000/admin/ (para gestionar datos como admin).

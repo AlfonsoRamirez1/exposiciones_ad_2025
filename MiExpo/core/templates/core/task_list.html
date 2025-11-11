@@ -1,0 +1,72 @@
+<!-- core/templates/core/task_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <!-- Estilos muy básicos para que no se vea tan feo -->
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; background: #f4f4f4; }
+        .container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .task-list { list-style: none; padding: 0; }
+        .task-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+        .task-item.completed { text-decoration: line-through; color: #999; }
+        .task-item span { flex-grow: 1; margin-left: 10px; }
+        form { margin-top: 20px; background: #fafafa; padding: 15px; border-radius: 5px; }
+        form p { margin: 10px 0; }
+        form input[type="text"], form textarea { width: 95%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestor de Tareas</h1>
+
+        <!-- Formulario para añadir nuevas tareas -->
+        <h2>Añadir Nueva Tarea</h2>
+        <form method="POST">
+            <!-- ¡MUY IMPORTANTE! Siempre incluye esto en formularios POST de Django por seguridad -->
+            {% csrf_token %}
+
+            <!-- Renderiza el formulario que creamos en forms.py -->
+            {{ form.as_p }}
+
+            <button type="submit">Guardar Tarea</button>
+        </form>
+
+        <!-- Lista de tareas pendientes -->
+        <h2>Tareas Pendientes</h2>
+        <ul class="task-list">
+            {% for task in tasks %}
+                {% if not task.completed %}
+                    <li class="task-item">
+                        <input type="checkbox" disabled>
+                        <span><strong>{{ task.title }}</strong><br><small>{{ task.description|default:"" }}</small></span>
+                        <!-- (Aquí podrías añadir un botón para completar) -->
+                    </li>
+                {% endif %}
+            {% empty %}
+                <li>¡No hay tareas pendientes!</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Lista de tareas completadas -->
+        <h2>Tareas Completadas</h2>
+        <ul class="task-list">
+            {% for task in tasks %}
+                {% if task.completed %}
+                    <li class="task-item completed">
+                        <input type="checkbox" checked disabled>
+                        <span><strong>{{ task.title }}</strong></span>
+                    </li>
+                {% endif %}
+            {% empty %}
+                <li>No hay tareas completadas.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
